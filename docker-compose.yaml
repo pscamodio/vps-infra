@@ -3,23 +3,25 @@ version: "3.7"
 services:
   portfolio:
     image: pscamodio/portfolio
+    container_name: portfolio
     restart: unless-stopped
     ports:
       - 3000:3000
 
-#   caddy:
-#     image: caddy:<version>
-#     restart: unless-stopped
-#     ports:
-#       - "80:80"
-#       - "443:443"
-#       - "443:443/udp"
-#     volumes:
-#       - caddy/Caddyfile:/etc/caddy/Caddyfile
-#       - caddy_data:/data
-#       - caddy_config:/config
+  caddy: 
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - caddy/Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
 
-# volumes:
-#   caddy_data:
-#     external: true
-#   caddy_config:
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:

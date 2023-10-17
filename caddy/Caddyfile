@@ -1,0 +1,3 @@
+portfolio.amodiopesce.eu {
+  reverseproxy portfolio:3000
+}
