@@ -1,3 +1,7 @@
-portfolio.amodiopesce.eu {
+{
+  email pscamodio@gmail.com
+}
+
+portfolio.pesceamodio.eu {
   reverse_proxy portfolio:3000
 }
