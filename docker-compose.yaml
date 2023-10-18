@@ -21,3 +21,12 @@ services:
       - $PWD/caddy/caddy_data:/data
       - $PWD/caddy/caddy_config:/config
 
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.docker/config.json:/config.json
+    command: --interval 180
+
